@@ -34,7 +34,7 @@ class _view_all_carsState extends State<view_filter_cars> {
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
         }, icon: Icon(Icons.arrow_back)),
-        title: Text("All Available Cars",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
+        title: Text("Available ${widget.type} Cars",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
         centerTitle: true,
       ),
       body: FutureBuilder<List<CarDetails>>(

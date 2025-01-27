@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:car_rental_app/Pages/SingleViewPages/add_report.dart';
+import 'package:car_rental_app/Pages/SingleViewPages/review.dart';
 import 'package:car_rental_app/data%20management/all%20classes/booking.dart';
 import 'package:car_rental_app/data%20management/userData/currentUser.dart';
 import 'package:flutter/material.dart';
@@ -165,6 +167,8 @@ class _onGoingState extends State<onGoing> {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => add_report(),));
+
                                 },
                                 child: Text('Report',style: TextStyle(color: Colors.white),),
                                 style: ElevatedButton.styleFrom(
@@ -181,6 +185,7 @@ class _onGoingState extends State<onGoing> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => add_review(),));
                                 },
                                 child: Text('Review',style: TextStyle(color: Colors.white),),
                                 style: ElevatedButton.styleFrom(

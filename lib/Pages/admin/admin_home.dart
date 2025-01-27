@@ -12,6 +12,7 @@ import '../../data management/all classes/report.dart';
 import '../../data management/all classes/review.dart';
 import '../../data management/api/fetch_api.dart';
 import '../../data management/api/sharedPref.dart';
+import '../../data management/userData/currentUser.dart';
 import '../Login.dart';
 import '../SingleViewPages/single_car_view.dart';
 import '../SingleViewPages/userPage.dart';
@@ -129,6 +130,8 @@ class _admin_homeState extends State<admin_home> {
                         ),
                         height: 300,
                         width: 300,
+                        child: Center(child: Text('Show All Stats +',style: TextStyle(color: Color(
+                            0xff616a8e),fontSize: 30,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
 
                       ),
                     ],
@@ -347,7 +350,7 @@ class _admin_homeState extends State<admin_home> {
                     border: Border.all(color: Colors.black.withAlpha(40), width: 2),
                   ),
                   margin: EdgeInsets.only(top: 13, left: 20, right: 20),
-                  height: 200,
+                  height: 250,
                   width: double.infinity,
                   child: Row(
                     children: [
@@ -379,17 +382,25 @@ class _admin_homeState extends State<admin_home> {
                               style: TextStyle(fontSize: 30),
                             ),
                             Text(
-                              "Person Type: ${person.customerId}",
+                              "Person Number: ${person.phoneNumber}",
                               style: TextStyle(fontSize: 20),
                             ),
+                            (person.phoneNumber2 != null && person.phoneNumber2!.isNotEmpty) ? Text(
+                              "Person Number 2: ${person.phoneNumber2}",
+                              style: TextStyle(fontSize: 20),
+                            ) : Container(),
+                            (person.drivingLicenseNumber != null && person.drivingLicenseNumber!.isNotEmpty) ? Text(
+                              "Driving License: ${person.drivingLicenseNumber}",
+                              style: TextStyle(fontSize: 20),
+                            ) : Container(),
                             Text(
-                              "Person Type: ${person.dob}",
+                              "Person DOB: ${person.dob?.year}-${person.dob?.month}-${person.dob?.day}",
                               style: TextStyle(fontSize: 20),
                             ),
-                            Text(
-                              "Person Type: ${DateTime.now().difference(person.dob!).inDays}",
-                              style: TextStyle(fontSize: 20),
-                            ),
+                            // Text(
+                            //   "Person Type: ${DateTime.now().difference(person.dob!).inDays}",
+                            //   style: TextStyle(fontSize: 20),
+                            // ),
                           ],
                         ),
                       )
@@ -461,15 +472,11 @@ class _admin_homeState extends State<admin_home> {
                               style: TextStyle(fontSize: 30),
                             ),
                             Text(
-                              "Person Type: ${person.customerId}",
+                              "Customer ID: ${person.customerId}",
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
-                              "Person Type: ${person.dob}",
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            Text(
-                              "Person Type: ${DateTime.now().difference(person.dob!).inDays}",
+                              "Person DOB: ${person.dob?.year}-${person.dob?.month}-${person.dob?.day}",
                               style: TextStyle(fontSize: 20),
                             ),
                           ],
@@ -630,6 +637,44 @@ class _admin_homeState extends State<admin_home> {
                             Text(
                               "BookingID: ${report.bookingId}",
                               style: TextStyle(fontSize: 20),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            (report.bookingId!=5)? ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xff5850d2),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 50, vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "Solve This Issue",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ):ElevatedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xff5850d2),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 50, vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "Solved",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           ],
                         ),
@@ -937,7 +982,7 @@ class _admin_homeState extends State<admin_home> {
                           children: [
 
                             Text(
-                              "Review ID: ${bookin.bookingId}",
+                              "Booking ID: ${bookin.bookingId}",
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
@@ -953,7 +998,7 @@ class _admin_homeState extends State<admin_home> {
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
-                              "carId: ${bookin.carId}",
+                              "car ID: ${bookin.carId}",
                               style: TextStyle(fontSize: 20),
                             ),
                             Text(
@@ -967,7 +1012,7 @@ class _admin_homeState extends State<admin_home> {
                               style: TextStyle(fontSize: 18),
                             ),
                             Text(
-                              "registrationNumber: ${bookin.registrationNumber}",
+                              "Car ID: ${bookin.carId}",
                               style: TextStyle(fontSize: 18),
                             ),
                             Text(
@@ -1282,14 +1327,8 @@ class _admin_homeState extends State<admin_home> {
                     ),
                     onTap: showAlbookingvyuser,
                   ),
-                  ListTile(
-                    title: Text(
-                      "Show All popular Car",
-                      style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    onTap: showAllpopularcar,
-                  ),
+
+
                 ],
               ),
             ),

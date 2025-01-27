@@ -203,7 +203,7 @@ class _SingleCarViewState extends State<single_car_view> {
                       TextFormField(
                         controller: _pointIdController,
                         decoration: InputDecoration(
-                          labelText: "Hire Point ID (1 , 2 , 3)",
+                          labelText: "Hire Point ID (1(Bus Stand-2) , 2(Gas Station) , 3(Rail Station))",
                           border: OutlineInputBorder(),
                         ),
                         keyboardType: TextInputType.number,

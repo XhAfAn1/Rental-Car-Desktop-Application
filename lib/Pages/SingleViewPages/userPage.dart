@@ -54,9 +54,11 @@ class _user_pageState extends State<user_page> {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       // Profile Picture and Name
                       Row(
+
                         children: [
                           CircleAvatar(
                             radius: 40,
@@ -98,18 +100,40 @@ class _user_pageState extends State<user_page> {
                           Expanded(
                             child: _buildInfoField('Last Name', '${currentUser.CurrentUser?.lastName}'),
                           ),
+
+
+                                (currentUser.CurrentUser?.drivingLicenseNumber!=null)?_buildInfoField('Driving Licence', '${currentUser.CurrentUser?.drivingLicenseNumber}'):Container(),
+                                (currentUser.CurrentUser?.staffRole!=null)?_buildInfoField('Staff Role', 'Admin'):Container(),
+
+
+
+
+                              (currentUser.CurrentUser?.membership!=null && currentUser.CurrentUser?.membership!='')?_buildInfoField('Membership Status', '${currentUser.CurrentUser?.membership}'):Container(),
+                          SizedBox(width: 550),
+
                         ],
                       ),
-                      SizedBox(height: 16),
                       Row(
+                       // mainAxisAlignment: MainAxisAlignment.start,
+                       // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
                             child: _buildInfoField('Email', '${currentUser.CurrentUser?.email}'),
                           ),
                           SizedBox(width: 16),
                           Expanded(
-                            child: _buildInfoField('Phone', '${currentUser.CurrentUser?.phoneNumber}'),
+                            child: Column(
+                              children: [
+                            
+                                  _buildInfoField('Phone', '${currentUser.CurrentUser?.phoneNumber}'),
+                            
+                            
+                              //  (currentUser.CurrentUser?.phoneNumber2!=null)?_buildInfoField('Phone 2', '${currentUser.CurrentUser?.phoneNumber2}'):Container()
+                            
+                              ],
+                            ),
                           ),
+
                         ],
                       ),
                       SizedBox(height: 100),

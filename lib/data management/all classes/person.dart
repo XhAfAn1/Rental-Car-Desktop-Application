@@ -6,6 +6,7 @@ class Person {
   final DateTime? dob;
   final int? age;
   final String? phoneNumber;
+  final String? phoneNumber2;
   final String? email;
   final String? street;
   final String? city;
@@ -16,6 +17,7 @@ class Person {
   final String? drivingLicenseNumber;
   final int? staffId;
   final String? staffRole;
+  final String? membership;
   final double? salary;
   final double? totalBooking;
   final double? totalPayment;
@@ -30,6 +32,7 @@ class Person {
     this.dob,
     this.age,
     this.phoneNumber,
+    this.phoneNumber2,
     this.email,
     this.street,
     this.city,
@@ -40,6 +43,7 @@ class Person {
     this.drivingLicenseNumber,
     this.staffId,
     this.staffRole,
+    this.membership,
     this.salary,
     this.username,
     this.password,
@@ -57,6 +61,7 @@ class Person {
       dob: json['DOB'] != null ? DateTime.tryParse(json['DOB']) : null,
       age: json['Age'] != null ? int.tryParse(json['Age'].toString()) : null,
       phoneNumber: json['PhoneNumber'],
+      phoneNumber2: json['PhoneNumber2'],
       email: json['Email'],
       street: json['Street'],
       city: json['City'],
@@ -67,6 +72,7 @@ class Person {
       drivingLicenseNumber: json['DrivingLicenseNumber'],
       staffId: json['StaffID'] != null ? int.tryParse(json['StaffID'].toString()) : null,
       staffRole: json['StaffRole'],
+      membership: json['membership']?.toString(),
       salary: json['Salary'] != null ? double.tryParse(json['Salary'].toString()) : null,
       totalBooking: json['Total_booking'] != null ? double.tryParse(json['Total_booking'].toString()) : null,
       totalPayment: json['Total_payment'] != null ? double.tryParse(json['Total_payment'].toString()) : null,
@@ -85,6 +91,7 @@ class Person {
       'DOB': dob?.toIso8601String(),
       'Age': age?.toString(),
       'PhoneNumber': phoneNumber,
+      'PhoneNumber2': phoneNumber2,
       'Email': email,
       'Street': street,
       'City': city,
@@ -95,6 +102,7 @@ class Person {
       'DrivingLicenseNumber': drivingLicenseNumber,
       'StaffID': staffId?.toString(),
       'StaffRole': staffRole,
+      'membership': membership?.toString(),
       'Salary': salary?.toString(),
       'Total_booking': totalBooking?.toString(),
       'Total_payment': totalPayment?.toString(),

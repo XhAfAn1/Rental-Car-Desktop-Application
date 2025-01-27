@@ -40,6 +40,8 @@ class _mainlogState extends State<mainlog> {
         if(isloggedin){
          if(currentUser.CurrentUser?.customerId!=null)
           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const home_screen(),));
+         if(currentUser.CurrentUser?.driverId!=null)
+           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const home_screen(),));
          else if(currentUser.CurrentUser?.staffId!=null)
            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const admin_home(),));
         }

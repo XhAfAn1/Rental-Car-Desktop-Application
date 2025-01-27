@@ -227,25 +227,7 @@ class _home_screenState extends State<home_screen> {
               height: 10,
               indent: 60,
             ),
-            Container(
-              padding: const EdgeInsets.only(left: 5),
-              margin: const EdgeInsets.only(right: 15),
-              child: ListTile(
-                leading: Icon(
-                  Icons.archive_outlined,
-                  color: Colors.black.withOpacity(0.75),
-                  size: 23,
-                ),
-                title: Text(
-                  'test',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black.withOpacity(0.75),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: null,
-              ),
-            ),
+
             Container(
               padding: const EdgeInsets.only(left: 5),
               margin: const EdgeInsets.only(right: 15),

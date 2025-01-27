@@ -43,6 +43,9 @@ class _loginState extends State<login> {
       if(usr.customerId!=null){
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => home_screen(),));
       }
+      if(usr.driverId!=null){
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => home_screen(),));
+      }
       else if(usr.staffId!=null){
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => admin_home(),));
       }
